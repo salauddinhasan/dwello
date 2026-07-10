@@ -1,3 +1,4 @@
+import FeaturedRooms from "@/components/FeaturedRooms";
 import Hero from "@/components/Hero";
 import PopularDestinations from "@/components/PopularDestinations";
 
@@ -6,6 +7,7 @@ export default function Home() {
     <div>
       <Hero />
       <PopularDestinations />
+      <FeaturedRooms />
     </div>
   );
 }
