@@ -2,6 +2,7 @@ import FeaturedRooms from "@/components/FeaturedRooms";
 import Hero from "@/components/Hero";
 import PopularDestinations from "@/components/PopularDestinations";
 import Statistics from "@/components/Statistics";
+import Testimonials from "@/components/Testimonials";
 import WhyChooseUs from "@/components/WhyChooseUs";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
       <FeaturedRooms />
       <WhyChooseUs />
       <Statistics/>
+      <Testimonials/>
     </div>
   );
 }
