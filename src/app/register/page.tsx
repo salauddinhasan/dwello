@@ -58,6 +58,13 @@ const RegisterPage = () => {
     }
   };
 
+  const handleGoogleSignUp = async () => {
+    await authClient.signIn.social({
+      provider: "google",
+      callbackURL: "/",
+    });
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
       <div className="w-full max-w-md">
@@ -151,6 +158,7 @@ const RegisterPage = () => {
           {/* Google Button */}
           <button
             type="button"
+            onClick={handleGoogleSignUp}
             className="w-full flex items-center justify-center gap-3 border border-gray-300 text-gray-700 py-3 rounded-lg font-medium hover:bg-gray-50 transition"
           >
             <svg className="w-5 h-5" viewBox="0 0 24 24">

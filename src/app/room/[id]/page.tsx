@@ -1,9 +1,9 @@
-// src/app/room/[id]/page.tsx
 "use client";
 
 import { useState, useEffect } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
+import { authClient } from "@/lib/auth-client";
 
 interface Room {
   _id: string;
@@ -20,10 +20,19 @@ interface Room {
 
 const RoomDetailPage = () => {
   const params = useParams();
+  const router = useRouter();
   const id = params.id as string;
 
+  const { data: session } = authClient.useSession();
   const [room, setRoom] = useState<Room | null>(null);
   const [loading, setLoading] = useState(true);
+
+  // Check if logged in
+  useEffect(() => {
+    if (!session) {
+      router.push("/login");
+    }
+  }, [session, router]);
 
   useEffect(() => {
     const fetchRoom = async () => {
@@ -37,8 +46,10 @@ const RoomDetailPage = () => {
         setLoading(false);
       }
     };
-    if (id) fetchRoom();
-  }, [id]);
+    if (id && session) fetchRoom();
+  }, [id, session]);
+
+  if (!session) return null;
 
   if (loading) {
     return (

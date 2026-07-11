@@ -21,13 +21,13 @@ const LoginPage = () => {
     });
   };
 
-  // Demo Login
-  const handleDemoLogin = () => {
-    setFormData({
-      email: "demo@dwello.com",
-      password: "demo123",
-    });
-  };
+  // // Demo Login
+  // const handleDemoLogin = () => {
+  //   setFormData({
+  //     email: "demo@dwello.com",
+  //     password: "demo123",
+  //   });
+  // };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -56,6 +56,13 @@ const LoginPage = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleGoogleSignIn = async () => {
+    await authClient.signIn.social({
+      provider: "google",
+      callbackURL: "/",
+    });
   };
 
   return (
@@ -123,14 +130,14 @@ const LoginPage = () => {
             {loading ? "Signing in..." : "Sign In"}
           </button>
 
-          {/* Demo Login */}
+          {/* Demo Login
           <button
             type="button"
             onClick={handleDemoLogin}
             className="w-full bg-gray-900 text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition mb-4"
           >
             👤 Demo Login
-          </button>
+          </button> */}
 
           {/* Divider */}
           <div className="relative mb-4">
@@ -145,6 +152,7 @@ const LoginPage = () => {
           {/* Google Button */}
           <button
             type="button"
+            onClick={handleGoogleSignIn}
             className="w-full flex items-center justify-center gap-3 border border-gray-300 text-gray-700 py-3 rounded-lg font-medium hover:bg-gray-50 transition"
           >
             <svg className="w-5 h-5" viewBox="0 0 24 24">
