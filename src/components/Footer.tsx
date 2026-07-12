@@ -47,7 +47,7 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/help"
+                  href="#"
                   className="text-sm text-gray-600 hover:text-rose-500 transition"
                 >
                   Help Center
@@ -55,7 +55,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/terms"
+                  href="#"
                   className="text-sm text-gray-600 hover:text-rose-500 transition"
                 >
                   Terms of Service
@@ -63,7 +63,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/privacy"
+                  href="#"
                   className="text-sm text-gray-600 hover:text-rose-500 transition"
                 >
                   Privacy Policy
